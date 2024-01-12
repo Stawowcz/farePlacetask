@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "cypress:open": "npx cypress open",
-    "cypress:run:chrome": "npx cypress run -b chrome"
+    "cypress:run:chrome": "npx cypress run -b chrome",
+    "cypress:run:electron": "npx cypress run",
+    "cypress:run:firefox": "npx cypress run -b firefox"
   },
   "keywords": [],
   "author": "",
