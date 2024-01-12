@@ -2,7 +2,7 @@ import { HomePage } from '../pages/HomePage';
 import { generateRandomDate, formatDateForDisplay, generateRandomNumber2to6, generateRandomNumber0to3, generateRandomCity } from '../../support/helper';
 
 
-describe('Search and filter normal approach', () => {
+describe('Search and filter', () => {
   const homePage = new HomePage();
   let testData;
 
