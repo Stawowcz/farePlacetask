@@ -1,0 +1,27 @@
+# Cypress Test Suite
+
+## Getting Started
+
+To run the tests in this repository, follow these steps:
+
+### Prerequisites
+
+- Node.js and npm should be installed on your machine.
+- Cypress should be installed globally.
+  
+### Clone the Repository
+
+git clone <repository-url>
+cd <repository-directory>
+
+### Install dependencies
+
+npm install
+
+### Run Tests (Headless Mode)
+
+npm run cypress:run:chrome
+
+### Open Cypress Test Runner (Headed Mode)
+
+npm run cypress:open

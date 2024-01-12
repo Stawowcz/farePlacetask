@@ -1,0 +1,17 @@
+{
+  "name": "fareplacetask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "npx cypress open",
+    "cypress:run:chrome": "npx cypress run -b chrome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.2",
+    "cypress-iframe": "^1.0.1"
+  }
+}
