@@ -83,6 +83,11 @@ export class HomePage {
       });
   }
 
+  checkElement(locator) {
+    cy.get(locator).check({ force: true });
+    cy.wait(3000)
+  }
+
   assertCityValue(randomCity) {
     cy.get(this.cityInputLoc).should('have.value', randomCity);
   }
@@ -114,7 +119,30 @@ export class HomePage {
       });
     });
   }
+
+  assertElementChecked(locator) {
+    cy.get(locator).should('be.checked');
+  }
+
+  assertFilterApplication(locator, randomCity) {
+    cy.get(locator)
+      .first()
+      .invoke('text')
+      .then((actualText) => {
+        const myVariable = actualText.trim();
+        const regexPattern = new RegExp(
+          `${randomCity}: ${myVariable.replace(/,/g, '\\,')} properties found`
+        );
+
+        cy.get(this.assertHeaderLoc)
+          .invoke('text')
+          .then((text) => {
+            expect(text).to.match(regexPattern);
+          });
+      });
+  }
 }
+
 
 
 
