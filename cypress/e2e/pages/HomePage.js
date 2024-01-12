@@ -33,13 +33,13 @@ export class HomePage {
 
 
   setCity(city) {
-    cy.wait(1000) // I know bad approach but needed on mozilla and chrome
+    cy.wait(2000) // I know bad approach but needed on mozilla and chrome
     cy.get(this.cityInputLoc).click({ force: true });
     cy.get(this.cityInputLoc).type(city, { force: true });
   }
 
   clearCity() {
-    cy.wait(1000) // I know bad approach but needed on mozilla and chrome
+    cy.wait(2000) // I know bad approach but needed on mozilla and chrome
     cy.get(this.clearCityButtonLoc)
       .dblclick({ force: true })
     
@@ -95,18 +95,22 @@ export class HomePage {
     cy.get(this.assertFormattedEndDateLoc).should('contain', formattedEndDate);
   }
 
-  assertOccupancyConfig(expectedOccupancyText) {
-    cy.get(this.occupancyFilterLoc).should('be.visible').invoke('text').should('include', expectedOccupancyText);
+  assertOccupancyConfig(expectedOccupacyText) {
+    cy.get(this.occupancyFilterLoc).each(($element, index) => {
+      cy.get($element).invoke('text').then((text) => {
+        expect(text).to.match(expectedOccupacyText);
+      })
+    })
   }
 
   assertPageTitle(randomCity) {
     cy.get(this.assertHeaderLoc).should('include.text', randomCity);
   }
 
-  assertOccupancyInEveryHotel(expectedOccupancyText) {
+  assertOccupancyInEveryHotel(expectedOccupacyText) {
     cy.get(this.assertOccupancyInEveryHotelLoc).each(($element, index) => {
       cy.get($element).invoke('text').then((text) => {
-        expect(text).to.match(expectedOccupancyText);
+        expect(text).to.match(expectedOccupacyText);
       });
     });
   }

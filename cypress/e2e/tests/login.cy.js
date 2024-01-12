@@ -1,8 +1,7 @@
- // Use testData directly from the before hook data driven testing
   import { LoginPage } from '../pages/LoginPage';
   import { HomePage } from '../pages/HomePage';
   
-  describe('Login Functionality', () => {
+  describe('Login Scenarios', () => {
     const homePage = new HomePage();
     const loginPage = new LoginPage();
     let testData;

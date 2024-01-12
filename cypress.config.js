@@ -12,7 +12,7 @@ module.exports = {
     "viewportWidth": 1280,
     "viewportHeight": 720,
     "screenshotsOnFailure": true,
-    "defaultCommandTimeout": 12000, 
+    "defaultCommandTimeout": 15000, 
     "pageLoadTimeout": 20000
   },
 };

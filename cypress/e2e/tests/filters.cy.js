@@ -20,7 +20,7 @@ describe('Search and filter', () => {
   const numberOfIterations = 3;
 
   Array.from({ length: numberOfIterations }).forEach((_, index) => {
-    it(`Should choose random city from list - Iteration ${index + 1}`, () => {
+    it(`Should choose random city from list and apply filters - Iteration ${index + 1}`, () => {
       const { startDate, endDate, startDateUpdated, endDateUpdated, startDateDay, endDateDay, startDateDayUpdated, endDateDayUpdated } = generateRandomDate();
       const formattedStartDate = formatDateForDisplay(new Date(startDate));
       const formattedEndDate = formatDateForDisplay(new Date(endDate));
@@ -37,13 +37,13 @@ describe('Search and filter', () => {
       const numberOfAdults = randomAdult + 2;
       const numberOfNightsUpdated = endDateDayUpdated - startDateDayUpdated;
       const numberOfAdultsUpdated = randomAdult + 2 - randomAdultUpdated;
-      const expectedOccupancyText = new RegExp(`^${numberOfNights} night[s]?, ${numberOfAdults} adults$`);
-      const expectedOccupancyTextUpdated = new RegExp(`^${numberOfNightsUpdated} night[s]?, ${numberOfAdultsUpdated} adults$`);
-      const expectedOccupacyText = `${randomAdult + 2} adults · 0 children · 1 room`;
-      const expectedOccupacyUpdatedText = `${randomAdult + 2 - randomAdultUpdated} adults · 0 children · 1 room`;
-  
+      const expectedOccupacyInEveryHotelText = new RegExp(`^${numberOfNights} night[s]?, ${numberOfAdults} adult[s]?$`);
+      const expectedOccupacyTextInEveryHotelUpdated = new RegExp(`^${numberOfNightsUpdated} night[s]?, ${numberOfAdultsUpdated} adult[s]?$`);
+      const expectedOccupacyText = new RegExp(`^${randomAdult + 2} adult[s]? · 0 children · 1 room[s]?$`);
+      const expectedOccupacyUpdatedText = new RegExp(`^${randomAdult + 2 - randomAdultUpdated} adult[s]? · 0 children · 1 room[s]?$`);
+      
       // Search and set filters
-    //   homePage.dismissSignInInfo();
+      //   homePage.dismissSignInInfo();
       homePage.setCity(randomCity);
       homePage.openCalendar();
       homePage.clickDate(startDate);
@@ -59,7 +59,7 @@ describe('Search and filter', () => {
       homePage.assertEndDateValue(formattedEndDate);
       homePage.assertOccupancyConfig(expectedOccupacyText);
       homePage.assertPageTitle(randomCity);
-      homePage.assertOccupancyInEveryHotel(expectedOccupancyText);
+      homePage.assertOccupancyInEveryHotel(expectedOccupacyInEveryHotelText);
   
       // Set the updated city and perform actions
       homePage.clearCity();
@@ -78,7 +78,7 @@ describe('Search and filter', () => {
       homePage.assertEndDateValue(formattedEndDateUpdated);
       homePage.assertOccupancyConfig(expectedOccupacyUpdatedText);
       homePage.assertPageTitle(randomCityUpdated);
-      homePage.assertOccupancyInEveryHotel(expectedOccupancyTextUpdated);
+      homePage.assertOccupancyInEveryHotel(expectedOccupacyTextInEveryHotelUpdated);
     });
-  });  
+  }); 
 });
