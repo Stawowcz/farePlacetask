@@ -21,6 +21,8 @@ npm install
 ### Run Tests (Headless Mode)
 
 npm run cypress:run:chrome
+npm run cypress:run:electron
+npm run cypress:run:firefox
 
 ### Open Cypress Test Runner (Headed Mode)
 

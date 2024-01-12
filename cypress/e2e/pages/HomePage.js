@@ -33,13 +33,13 @@ export class HomePage {
 
 
   setCity(city) {
-    cy.wait(1000) // I know bad approach but needed on mozilla
+    cy.wait(1000) // I know bad approach but needed on mozilla and chrome
     cy.get(this.cityInputLoc).click({ force: true });
     cy.get(this.cityInputLoc).type(city, { force: true });
   }
 
   clearCity() {
-    cy.wait(1000) // I know bad approach but needed on mozilla
+    cy.wait(1000) // I know bad approach but needed on mozilla and chrome
     cy.get(this.clearCityButtonLoc)
       .dblclick({ force: true })
     
