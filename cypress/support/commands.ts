@@ -25,27 +25,27 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 //attempts for captchta handle without succeed :(
-Cypress.Commands.add('pressAndHold', { prevSubject: true }, (subject, duration = 1000) => {
-    cy.wrap(subject)
-      .trigger('mousedown')
-      .wait(duration)
-      .trigger('mouseup');
-  });
+// Cypress.Commands.add('pressAndHold', { prevSubject: true }, (subject, duration = 1000) => {
+//     cy.wrap(subject)
+//       .trigger('mousedown')
+//       .wait(duration)
+//       .trigger('mouseup');
+//   });
 
-// same as above
-Cypress.Commands.add('clickAndHoldShadowRoot', { prevSubject: 'element' }, (subject, duration, selector) => {
-    const shadow = subject[0].shadowRoot;
+// // same as above
+// Cypress.Commands.add('clickAndHoldShadowRoot', { prevSubject: 'element' }, (subject, duration, selector) => {
+//     const shadow = subject[0].shadowRoot;
   
-    // Find the button inside the shadow root
-    const button = shadow.querySelector(selector);
+//     // Find the button inside the shadow root
+//     const button = shadow.querySelector(selector);
   
-    // Dispatch mouse events
-    button.dispatchEvent(new Event('mousedown'));
+//     // Dispatch mouse events
+//     button.dispatchEvent(new Event('mousedown'));
   
-    return new Promise(resolve => {
-      setTimeout(() => {
-        button.dispatchEvent(new Event('mouseup'));
-        resolve();
-      }, duration);
-    });
-  });
+//     return new Promise(resolve => {
+//       setTimeout(() => {
+//         button.dispatchEvent(new Event('mouseup'));
+//         resolve();
+//       }, duration);
+//     });
+//   });

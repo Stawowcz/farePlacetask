@@ -1,4 +1,4 @@
-//generation of dates those i set in filters, as well as days which I need to get to do assertions
+//generation of dates which i set in filters, as well as days which I need to get to do assertions
 export function generateRandomDate() {
   const currentDate = new Date();
   const randomOffsetStart = Math.floor(Math.random() * 5) + 1;
@@ -31,12 +31,12 @@ export function generateRandomDate() {
 }
 
 //changing of date format which are needed for assertions
-export function formatDateForDisplay(date) {
-  const options = { weekday: 'short', month: 'short', day: 'numeric' };
-  return new Intl.DateTimeFormat('en-US', options).format(date);
+export function formatDateForDisplay(date: string): string {
+  const options: Intl.DateTimeFormatOptions = { weekday: 'short', month: 'short', day: 'numeric' };
+  return new Intl.DateTimeFormat('en-US', options).format(new Date(date));
 }
 
-export function generateRandomCity(cities) {
+export function generateRandomCity(cities:string) {
   const randomIndex = Math.floor(Math.random() * cities.length);
   return cities[randomIndex];
 }

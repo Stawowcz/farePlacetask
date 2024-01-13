@@ -1,6 +1,6 @@
 module.exports = {
   e2e: {
-    setupNodeEvents(on, config) {
+    setupNodeEvents() {
       // implement node event listeners here
     },
     "baseUrl": "https://www.booking.com/",

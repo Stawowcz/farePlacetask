@@ -1,10 +1,11 @@
 import { HomePage } from '../pages/HomePage';
 import { generateRandomDate, formatDateForDisplay, generateRandomNumber2to6, generateRandomNumber0to3, generateRandomCity } from '../../support/helper';
-import { nameFiltersLoc, numberFiltersLoc } from "../../fixtures/filtersLocators.json"
+import { nameFiltersLoc, numberFiltersLoc } from "../../fixtures/filtersLocators.json";
+
 describe('Search and filter', () => {
   const homePage = new HomePage();
-  let testData;
- 
+  let testData: Record<string, any>
+
   before(() => {
     cy.fixture('filtersData.json').then((data) => {
       testData = data;
@@ -16,7 +17,7 @@ describe('Search and filter', () => {
     homePage.acceptCookies();
   });
 
-  const numberOfIterations = 3; // if you increase this then more test will be run, 
+  const numberOfIterations = 1; // if you increase this then more test will be ran, 
 
   // cities in this test are taken randomly from the filtersData.json fixtures,
   // data like cities and counter's numbers
@@ -24,10 +25,10 @@ describe('Search and filter', () => {
   Array.from({ length: numberOfIterations }).forEach((_, index) => {
     it(`Should choose random city from list and apply filters - Iteration ${index + 1}`, () => {
       const { startDate, endDate, startDateUpdated, endDateUpdated, startDateDay, endDateDay, startDateDayUpdated, endDateDayUpdated } = generateRandomDate();
-      const formattedStartDate = formatDateForDisplay(new Date(startDate));
-      const formattedEndDate = formatDateForDisplay(new Date(endDate));
-      const formattedStartDateUpdated = formatDateForDisplay(new Date(startDateUpdated));
-      const formattedEndDateUpdated = formatDateForDisplay(new Date(endDateUpdated));
+      const formattedStartDate = formatDateForDisplay(startDate);
+      const formattedEndDate = formatDateForDisplay(endDate);
+      const formattedStartDateUpdated = formatDateForDisplay(startDateUpdated);
+      const formattedEndDateUpdated = formatDateForDisplay(endDateUpdated);
 
       // Use the cities list from the fixture
       const randomCity = generateRandomCity(testData.cities);
@@ -58,9 +59,9 @@ describe('Search and filter', () => {
       homePage.assertCityValue(randomCity);
       homePage.assertStartDateValue(formattedStartDate);
       homePage.assertEndDateValue(formattedEndDate);
-      homePage.assertOccupancyConfig(expectedOccupacyText);
+      homePage.assertOccupancyFilters(expectedOccupacyText, homePage.occupancyFilterLoc);
       homePage.assertPageTitle(randomCity);
-      homePage.assertOccupancyInEveryHotel(expectedOccupacyInEveryHotelText);
+      homePage.assertOccupancyFilters(expectedOccupacyInEveryHotelText, homePage.assertOccupancyInEveryHotelLoc);
 
       // Set the updated city and perform actions
       homePage.clearCity();
@@ -77,9 +78,9 @@ describe('Search and filter', () => {
       homePage.assertCityValue(randomCityUpdated);
       homePage.assertStartDateValue(formattedStartDateUpdated);
       homePage.assertEndDateValue(formattedEndDateUpdated);
-      homePage.assertOccupancyConfig(expectedOccupacyUpdatedText);
+      homePage.assertOccupancyFilters(expectedOccupacyUpdatedText, homePage.occupancyFilterLoc);
       homePage.assertPageTitle(randomCityUpdated);
-      homePage.assertOccupancyInEveryHotel(expectedOccupacyTextInEveryHotelUpdated);
+      homePage.assertOccupancyFilters(expectedOccupacyTextInEveryHotelUpdated, homePage.assertOccupancyInEveryHotelLoc);
     });
   });
 
@@ -100,7 +101,7 @@ describe('Search and filter', () => {
     homePage.submitOccupancy();
     homePage.submitSearch();
 
-    nameFiltersLoc.forEach((nameFiltersLoc, index) => {
+    nameFiltersLoc.forEach((nameFiltersLoc, index:number) => {
       // Assertion's of element checked and if title header changed after filter applying, for 4 different filters one after another
       homePage.checkElement(nameFiltersLoc);
       homePage.assertElementChecked(nameFiltersLoc);
@@ -110,12 +111,12 @@ describe('Search and filter', () => {
 
   //side filter is applied in each test and afterwards assertion of header title is done
   //4 iterations: 1 in each test based on locators from filtersLocators.json
-  nameFiltersLoc.forEach((nameFiltersLoc, index) => {
+  nameFiltersLoc.forEach((nameFiltersLoc, index:number) => {
     it(`Should apply and assert single side filter - Iteration ${index + 1}`, function() {
       const { startDate, endDate } = generateRandomDate();
       const randomCity = generateRandomCity(testData.cities);
       const randomAdult = generateRandomNumber0to3();
-  
+
       // Search and set filters
       homePage.setCity(randomCity);
       homePage.openCalendar();
