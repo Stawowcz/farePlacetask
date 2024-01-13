@@ -14,7 +14,6 @@
   
     beforeEach(() => {
       cy.visit('/')
-  
       homePage.clickSignIn();
       homePage.acceptCookies();
     });
@@ -36,7 +35,8 @@
           loginPage.submitForm(0, false);
         }
   
-        // Assert based on the scenario
+        // Assertion is based on the scenarios, validCredential and invalidPassword do not work because because captcha mechanism is
+        // triggered
         switch (scenario) {
           case 'validCredentials':
             loginPage.assertLoggedIn(data.expectedAssertion);

@@ -2,30 +2,25 @@
 "validCredentials": {
   "username": "fareplace123@gmail.com",
   "password": "hJ*E#x&fd3?B.Uf",
-  "expectedAssertion": "Your account",
-  "unexpectedAssertion": " "
+  "expectedAssertion": "Your account"
 },
 "invalidEmailFormat": {
   "username": "invalidemailformat",
-  "expectedAssertion": "Make sure the email address you entered is correct. ",
-  "unexpectedAssertion": " "
+  "expectedAssertion": "Make sure the email address you entered is correct. "
 
 },
 "emptyEmail": {
-  "expectedAssertion": "Enter your email address",
-  "unexpectedAssertion": " "
+  "expectedAssertion": "Enter your email address"
 },
 "invalidPassword": {
   "username": "fareplace123@gmail.com",
   "password": "invalidpassword",
-  "expectedAssertion": "Your password is incorrect – try again or use a verification link",
-  "unexpectedAssertion": " "
+  "expectedAssertion": "Your password is incorrect – try again or use a verification link"
 },
 "emptyPassword": {
   "username": "fareplace123@gmail.com",
   "password": "",
-  "expectedAssertion": "Enter your Booking.com password",
-  "unexpectedAssertion": " "
+  "expectedAssertion": "Enter your Booking.com password"
 }
 }
 

@@ -1,11 +1,11 @@
 {
-  "mealPlanLocators": [
+  "nameFiltersLoc": [
     "[name=\"mealplan=1\"]",
     "[name=\"ht_id=204\"]",
     "[name=\"distance=1000\"]",
     "[name=\"tdb=3\"]"
   ],
-  "filtersItemLocators": [
+  "numberFiltersLoc": [
     "[data-filters-item=\"popular:mealplan=1\"] .abf093bdfe.c15ddc3c96",
     "[data-filters-item=\"popular:ht_id=204\"] .abf093bdfe.c15ddc3c96",
     "[data-filters-item=\"distance:distance=1000\"] .abf093bdfe.c15ddc3c96",

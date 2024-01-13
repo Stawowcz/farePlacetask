@@ -1,6 +1,8 @@
 export class LoginPage {
 
     constructor() {
+        // it is not the approach as I follow, I practice to keep locator in object but I did like this in here
+        // why not to try different approach
         this.cookieAcceptButtonLoc = '#onetrust-accept-btn-handler';
         this.usernameInputLoc = '#username';
         this.passwordInputLoc = '#password';

@@ -7,3 +7,5 @@ In the login.cy.js file, the login tests validCredentials and invalidPassword do
 In the filters.cy.js file, there are tests for filters and searching. Here, I also applied data-driven testing, mixing it with dynamically generated data.
 
 Additionally, I have added a file at .github/workflows/e2eTest.yml.
+
+I DESCRIBE ALL IN TESTS AS WELL. BR JAKUB
