@@ -30,13 +30,15 @@ export class HomePage {
   }
 
   setCity(city: string): void {
-    cy.wait(2000);
+    cy.wait(2000); // I know bad approach but needed on mozilla and chrome, you can try comment it my internet was kinda slow
+    // cy.get(this.cityInputLoc).should('be.visible') //you can check with this
     cy.get(this.cityInputLoc).click({ force: true });
     cy.get(this.cityInputLoc).type(city, { force: true });
   }
 
   clearCity(): void {
-    cy.wait(2000);
+    cy.wait(2000); // I know bad approach but needed on mozilla and chrome, you can try comment it my internet was kinda slow
+    // cy.get(this.cityInputLoc).should('be.visible') //you can check with this
     cy.get(this.clearCityButtonLoc).dblclick({ force: true });
   }
 
@@ -113,6 +115,8 @@ export class HomePage {
     cy.get(locator).should('be.checked');
   }
 
+  // assertion for title header after side filters application if results of hotel found are bigger than 999 we skip assertion
+  // why? because then e.g we do not have 1000, but we got 1,000 in header title and regex was problematic
   assertFilterApplication(locator: string, randomCity: string): void {
     cy.get(locator)
       .first()
