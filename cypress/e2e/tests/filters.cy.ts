@@ -57,8 +57,8 @@ describe('Search and filter', () => {
 
       // Assertion of the first search
       homePage.assertCityValue(randomCity);
-      homePage.assertStartDateValue(formattedStartDate);
-      homePage.assertEndDateValue(formattedEndDate);
+      homePage.assertDateValue(formattedStartDate, homePage.calendarFieldLoc);
+      homePage.assertDateValue(formattedEndDate, homePage.assertFormattedEndDateLoc);
       homePage.assertOccupancyFilters(expectedOccupacyText, homePage.occupancyFilterLoc);
       homePage.assertPageTitle(randomCity);
       homePage.assertOccupancyFilters(expectedOccupacyInEveryHotelText, homePage.assertOccupancyInEveryHotelLoc);
@@ -76,8 +76,8 @@ describe('Search and filter', () => {
 
       // Assertions for the updated search
       homePage.assertCityValue(randomCityUpdated);
-      homePage.assertStartDateValue(formattedStartDateUpdated);
-      homePage.assertEndDateValue(formattedEndDateUpdated);
+      homePage.assertDateValue(formattedStartDateUpdated, homePage.calendarFieldLoc);
+      homePage.assertDateValue(formattedEndDateUpdated, homePage.assertFormattedEndDateLoc);
       homePage.assertOccupancyFilters(expectedOccupacyUpdatedText, homePage.occupancyFilterLoc);
       homePage.assertPageTitle(randomCityUpdated);
       homePage.assertOccupancyFilters(expectedOccupacyTextInEveryHotelUpdated, homePage.assertOccupancyInEveryHotelLoc);

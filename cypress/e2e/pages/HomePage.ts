@@ -1,18 +1,17 @@
 export class HomePage {
-
   private cookieAcceptButtonLoc: string = '#onetrust-accept-btn-handler';
   private signInButtonLoc: string = 'Sign in';
   private dateLoc: (date: string) => string = (date) => `[data-date="${date}"]`;
   private cityInputLoc: string = '[name="ss"]';
   private clearCityButtonLoc: string = '[data-testid="input-clear"]';
-  private calendarFieldLoc: string = '[data-testid="date-display-field-start"]';
+  public calendarFieldLoc: string = '[data-testid="date-display-field-start"]';
   public occupancyFilterLoc: string = '[data-testid="occupancy-config"]';
   private decreaseAdultButtonLoc: string = 'button[aria-hidden="true"]:first';
   private increaseAdultButtonLoc: string = 'button[aria-hidden="true"]:last';
   private submitOccupancyButtonLoc: string = '.e4adce92df';
   private searchButtonLoc: string = '[data-testid="searchbox-layout-wide"] button';
   private groupAdultLoc: string = '#group_adults';
-  private assertFormattedEndDateLoc: string = '[data-testid="date-display-field-end"]';
+  public assertFormattedEndDateLoc: string = '[data-testid="date-display-field-end"]';
   private assertHeaderLoc: string = 'h1[aria-live="assertive"]';
   public assertOccupancyInEveryHotelLoc: string = '[data-testid="property-card"] [data-testid="price-for-x-nights"]';
   private dissmissSignInfoButtonLoc: string = 'button[aria-label="Dismiss sign-in info."]';
@@ -90,12 +89,8 @@ export class HomePage {
     cy.get(this.cityInputLoc).should('have.value', randomCity);
   }
 
-  assertStartDateValue(formattedStartDate: string): void {
-    cy.get(this.calendarFieldLoc).should('contain', formattedStartDate);
-  }
-
-  assertEndDateValue(formattedEndDate: string): void {
-    cy.get(this.assertFormattedEndDateLoc).should('contain', formattedEndDate);
+  assertDateValue(formattedDate: string, locator:string): void {
+    cy.get(locator).should('contain', formattedDate);
   }
 
   assertOccupancyFilters(expectedOccupacyText: RegExp, locator:string): void {
