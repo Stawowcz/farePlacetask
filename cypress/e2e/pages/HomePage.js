@@ -96,6 +96,8 @@ export class HomePage {
     cy.get(this.cityInputLoc).should('have.value', randomCity);
   }
 
+  //assertStartDateValue and assertEndDateValue can be in one function the same as i did it in typescript
+  // here I left is as it is
   assertStartDateValue(formattedStartDate) {
     cy.get(this.calendarFieldLoc).should('contain', formattedStartDate);
   }
@@ -104,6 +106,8 @@ export class HomePage {
     cy.get(this.assertFormattedEndDateLoc).should('contain', formattedEndDate);
   }
 
+  // assertOccupancyConfig and assertOccupancyInEveryHotel can be in one function the same as i did it in typescript
+  // here I left is as it is
   assertOccupancyConfig(expectedOccupacyText) {
     cy.get(this.occupancyFilterLoc).each(($element, index) => {
       cy.get($element).invoke('text').then((text) => {
@@ -112,16 +116,18 @@ export class HomePage {
     })
   }
 
-  assertPageTitle(randomCity) {
-    cy.get(this.assertHeaderLoc).should('include.text', randomCity);
-  }
-
+  // assertOccupancyConfig and assertOccupancyInEveryHotel can be in one function the same as i did it in typescript
+  // here I left is as it is
   assertOccupancyInEveryHotel(expectedOccupacyText) {
     cy.get(this.assertOccupancyInEveryHotelLoc).each(($element, index) => {
       cy.get($element).invoke('text').then((text) => {
         expect(text).to.match(expectedOccupacyText);
       });
     });
+  }
+
+  assertPageTitle(randomCity) {
+    cy.get(this.assertHeaderLoc).should('include.text', randomCity);
   }
 
   assertElementChecked(locator) {

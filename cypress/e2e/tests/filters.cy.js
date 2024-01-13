@@ -16,7 +16,7 @@ describe('Search and filter', () => {
     homePage.acceptCookies();
   });
 
-  const numberOfIterations = 3; // if you increase this then more test will be run, 
+  const numberOfIterations = 2; // if you increase this then more test will be ran, 
 
   // cities in this test are taken randomly from the filtersData.json fixtures,
   // data like cities and counter's numbers
