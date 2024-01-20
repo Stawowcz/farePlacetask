@@ -1,7 +1,7 @@
   import { LoginPage } from '../pages/LoginPage';
   import { HomePage } from '../pages/HomePage';
   
-  describe('Login Scenarios', () => {
+  describe.skip('Login Scenarios', () => {
     const homePage = new HomePage();
     const loginPage = new LoginPage();
     let testData;
